@@ -37,9 +37,12 @@
 
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Home</a></li>
+            <li><a class="smooth-scroll" href="#home">Home</a></li>
             <li><a href="#">Angebot</a></li>
             <li><a href="#">Regionale Produkte</a></li>
+            <li><a href="#">Euer Gewinn</a></li>
+            <li><a href="#">Kontakt</a></li>
+            <li><a href="#">Impressum</a></li>
          </ul>
         </div>
   </div>
@@ -47,8 +50,8 @@
  </nav>
 
 
-<section class= "header">
-<div class= "container"> 	
+<section class="header">
+<div class="container"> 	
 	<h1>Willkommen bei vomMarkt.de</h1>
 	<img src="image/Logo.png">
 	<p> frisch.lokal.nachhaltig </p>
@@ -59,25 +62,22 @@
 
 <section>
 
-<div class = "container">
-	<div class="card">
-	<i class="glyphicon glyphicon-link"></i>
-		<h3>lblalalala</h3>
-		<button>Button</button>
+<div class="container">
+	<div id="home" class="card">
+	<i class="glyphicon glyphicon-leaf"></i>
+		<h3>Regionales Angebot</h3>
+		<button>Kostenlos testen</button>
 	</div>
 </div>
 
 <div class = "container">
 	<div class="card">
-		<h3>lblalalala</h3>
+	<i class="glyphicon glyphicon-globe"></i>
+		<h3>Das Beste aus aller Welt</h3>
+		<button>Kostenlos testen</button>
 	</div>
 </div>
 
-<div class = "container">
-	<div class="card">
-		<h3>lblalalala</h3>
-	</div>
-</div>
 
 </section>
 
@@ -96,7 +96,26 @@
 
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function(){
 
+  $(function() {
+    $('a[href*="#"].smooth-scroll:not([href="#"])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: target.offset().top - 50
+          }, 1000);
+          return false;
+        }
+      }
+    });
+  });
+
+});
+</script>
 </body>
 
 </html>
